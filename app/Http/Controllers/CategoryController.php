@@ -41,4 +41,26 @@ class CategoryController extends Controller
 
         return redirect()->route('categories.index')->with('message', 'Categoria eliminada');
     }
+
+    public function edit(Category $category): Response
+    {
+        return Inertia::render('categories/edit', [
+            'category' => $category,
+        ]);
+    }
+
+    public function update(Request $request, Category $category)
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255', 'not_regex:/[0-9]/'],
+            'description' => ['nullable', 'string'],
+        ], [
+            'name.not_regex' => 'The name field must not contain numbers.',
+        ]);
+
+        $category->update($validated);
+
+        return redirect()->route('categories.index')->with('message', 'Category updated successfully.');
+    }
+
 }
