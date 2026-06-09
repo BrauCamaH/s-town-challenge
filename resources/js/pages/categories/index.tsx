@@ -8,11 +8,11 @@ export default function Index({ categories }: { categories: any }) {
             <Head title="Categories" />
             <div className="mb-6 flex items-center justify-between">
                 <Heading
-                    title="Categories"
-                    description="Manage book categories"
+                    title="Categorias"
+                    description="Categoriias de Libros"
                 />
                 <Link href="/categories/create">
-                    <Button>Add Category</Button>
+                    <Button>Agregar</Button>
                 </Link>
             </div>
 
