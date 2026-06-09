@@ -104,7 +104,7 @@ export default function Index({ books }: { books: any }) {
                                                     variant="ghost"
                                                     size="sm"
                                                 >
-                                                    Edit
+                                                    Editar
                                                 </Button>
                                             </Link>
                                             <Link
@@ -117,7 +117,7 @@ export default function Index({ books }: { books: any }) {
                                                     size="sm"
                                                     className="text-red-600"
                                                 >
-                                                    Delete
+                                                    Eliminar
                                                 </Button>
                                             </Link>
                                         </div>

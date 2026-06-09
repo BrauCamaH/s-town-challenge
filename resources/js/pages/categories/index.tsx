@@ -46,7 +46,7 @@ export default function Index({ categories }: { categories: any }) {
                                             href={`/categories/${category.id}/edit`}
                                         >
                                             <Button variant="outline" size="sm">
-                                                Edit
+                                                Editar
                                             </Button>
                                         </Link>
                                         <Link
@@ -58,7 +58,7 @@ export default function Index({ categories }: { categories: any }) {
                                                 variant="destructive"
                                                 size="sm"
                                             >
-                                                Delete
+                                                Eliminar
                                             </Button>
                                         </Link>
                                     </div>
