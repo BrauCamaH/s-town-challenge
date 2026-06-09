@@ -57,4 +57,38 @@ class BookController extends Controller
 
         return redirect()->route('books.index')->with('message', 'Libro eliminado.');
     }
+
+    public function edit(Book $book): Response
+    {
+        return Inertia::render('books/edit', [
+            'book' => $book->load('categories'),
+            'categories' => Category::all(),
+        ]);
+    }
+
+    public function update(Request $request, Book $book)
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255', 'not_regex:/[0-9]/'],
+            'author' => ['required', 'string', 'max:255', 'not_regex:/[0-9]/'],
+            'published_date' => ['required', 'date'],
+            'category_ids' => ['required', 'array', 'min:1'],
+            'category_ids.*' => ['exists:categories,id'],
+        ], [
+            'name.not_regex' => 'The name field must not contain numbers.',
+            'author.not_regex' => 'The author field must not contain numbers.',
+            'category_ids.min' => 'The book must be in at least one category.',
+        ]);
+
+        $book->update([
+            'name' => $validated['name'],
+            'author' => $validated['author'],
+            'published_date' => $validated['published_date'],
+        ]);
+
+        $book->categories()->sync($validated['category_ids']);
+
+        return redirect()->route('books.index')->with('message', 'Book updated successfully.');
+    }
+
 }
