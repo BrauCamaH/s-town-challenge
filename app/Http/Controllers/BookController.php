@@ -91,4 +91,21 @@ class BookController extends Controller
         return redirect()->route('books.index')->with('message', 'Book updated successfully.');
     }
 
+    public function borrow(Request $request, Book $book)
+    {
+        $validated = $request->validate([
+            'user_id' => ['required', 'exists:users,id'],
+        ]);
+
+        $book->borrowBy(User::find($validated['user_id']));
+
+        return redirect()->route('books.index')->with('message', 'Book borrowed success0ully.');
+    }
+
+    public function returnBook(Book $book)
+    {
+        $book->makeAvailable();
+
+        return redirect()->route('books.index')->with('message', 'Book returned successfully.');
+    }
 }

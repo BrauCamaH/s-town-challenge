@@ -1,9 +1,9 @@
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, useForm } from '@inertiajs/react';
 import Heading from '@/components/heading';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
-export default function Index({ books }: { books: any }) {
+export default function Index({ books, users }: { books: any; users: any[] }) {
     return (
         <div className="p-4 md:p-8">
             <Head title="Books" />
@@ -82,7 +82,10 @@ export default function Index({ books }: { books: any }) {
                                     <td className="px-6 py-4 text-right text-sm font-medium whitespace-nowrap">
                                         <div className="flex items-center justify-end gap-2">
                                             {!book.user_id ? (
-                                                <div></div>
+                                                <BorrowForm
+                                                    bookId={book.id}
+                                                    users={users}
+                                                />
                                             ) : (
                                                 <Link
                                                     href={`/books/${book.id}/return`}
@@ -93,7 +96,7 @@ export default function Index({ books }: { books: any }) {
                                                         variant="outline"
                                                         size="sm"
                                                     >
-                                                        Return
+                                                        Regresar
                                                     </Button>
                                                 </Link>
                                             )}
@@ -151,6 +154,43 @@ export default function Index({ books }: { books: any }) {
                 </div>
             )}
         </div>
+    );
+}
+
+function BorrowForm({ bookId, users }: { bookId: number; users: any[] }) {
+    const { data, setData, post, processing } = useForm({
+        user_id: '',
+    });
+
+    const submit = (e) => {
+        e.preventDefault();
+
+        if (!data.user_id) {
+            return;
+        }
+
+        post(`/books/${bookId}/borrow`);
+    };
+
+    return (
+        <form onSubmit={submit} className="flex items-center gap-1">
+            <select
+                value={data.user_id}
+                onChange={(e) => setData('user_id', e.target.value)}
+                className="rounded border p-1 text-xs dark:border-neutral-700 dark:bg-neutral-800"
+                required
+            >
+                <option value="">Seleccionar Usuario</option>
+                {users.map((user) => (
+                    <option key={user.id} value={user.id}>
+                        {user.name}
+                    </option>
+                ))}
+            </select>
+            <Button size="sm" disabled={processing || !data.user_id}>
+                Prestar
+            </Button>
+        </form>
     );
 }
 
