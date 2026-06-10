@@ -57,8 +57,8 @@ export default function Create() {
 
 Create.layout = {
     breadcrumbs: [
-        { title: 'Dashboard', href: '/dashboard' },
+        { title: 'Panel de Control', href: '/dashboard' },
         { title: 'Categorias', href: '/categories' },
-        { title: 'Create', href: '/categories/create' },
+        { title: 'Crear', href: '/categories/create' },
     ],
 };

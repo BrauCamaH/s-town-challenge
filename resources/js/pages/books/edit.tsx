@@ -105,7 +105,7 @@ export default function Edit({
 
 Edit.layout = {
     breadcrumbs: [
-        { title: 'Dashboard', href: '/dashboard' },
+        { title: 'Panel de Control', href: '/dashboard' },
         { title: 'Libros', href: '/books' },
         { title: 'Editar', href: '#' },
     ],

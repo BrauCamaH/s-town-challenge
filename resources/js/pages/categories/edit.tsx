@@ -57,7 +57,7 @@ export default function Edit({ category }: { category: any }) {
 
 Edit.layout = {
     breadcrumbs: [
-        { title: 'Dashboard', href: '/dashboard' },
+        { title: 'Panel de Control', href: '/dashboard' },
         { title: 'Categorias', href: '/categories' },
         { title: 'Editar', href: '#' },
     ],

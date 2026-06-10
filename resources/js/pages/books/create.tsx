@@ -99,8 +99,8 @@ export default function Create({ categories }: { categories: any[] }) {
 
 Create.layout = {
     breadcrumbs: [
-        { title: 'Dashboard', href: '/dashboard' },
-        { title: 'Books', href: '/books' },
-        { title: 'Create', href: '/books/create' },
+        { title: 'Panel de Control', href: '/dashboard' },
+        { title: 'Libros', href: '/books' },
+        { title: 'Crear', href: '/books/create' },
     ],
 };

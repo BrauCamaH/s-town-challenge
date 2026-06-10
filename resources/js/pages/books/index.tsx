@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button';
 export default function Index({ books, users }: { books: any; users: any[] }) {
     return (
         <div className="p-4 md:p-8">
-            <Head title="Books" />
+            <Head title="Libros" />
             <div className="mb-6 flex items-center justify-between">
-                <Heading title="Libros" description="Manejar Libreria" />
+                <Heading title="Libros" description="Manejar Librería" />
                 <Link href="/books/create">
                     <Button>Agregar</Button>
                 </Link>
@@ -20,10 +20,10 @@ export default function Index({ books, users }: { books: any; users: any[] }) {
                         <thead className="bg-neutral-50 dark:bg-neutral-800/50">
                             <tr>
                                 <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-neutral-500 uppercase">
-                                    Titulo / Autor
+                                    Título / Autor
                                 </th>
                                 <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-neutral-500 uppercase">
-                                    Categorias
+                                    Categorías
                                 </th>
                                 <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-neutral-500 uppercase">
                                     Estatus
@@ -133,7 +133,7 @@ export default function Index({ books, users }: { books: any; users: any[] }) {
                                         colSpan={4}
                                         className="px-6 py-4 text-center text-sm text-neutral-500"
                                     >
-                                        No books found.
+                                        No se encontraron libros.
                                     </td>
                                 </tr>
                             )}
@@ -196,7 +196,7 @@ function BorrowForm({ bookId, users }: { bookId: number; users: any[] }) {
 
 Index.layout = {
     breadcrumbs: [
-        { title: 'Dashboard', href: '/dashboard' },
+        { title: 'Panel de Control', href: '/dashboard' },
         { title: 'Libros', href: '/books' },
     ],
 };

@@ -5,11 +5,11 @@ import { Button } from '@/components/ui/button';
 export default function Index({ categories }: { categories: any }) {
     return (
         <div className="p-4 md:p-8">
-            <Head title="Categories" />
+            <Head title="Categorías" />
             <div className="mb-6 flex items-center justify-between">
                 <Heading
-                    title="Categorias"
-                    description="Categoriias de Libros"
+                    title="Categorías"
+                    description="Categorías de Libros"
                 />
                 <Link href="/categories/create">
                     <Button>Agregar</Button>
@@ -24,7 +24,7 @@ export default function Index({ categories }: { categories: any }) {
                                 Nombre
                             </th>
                             <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-neutral-500 uppercase">
-                                Descripcion
+                                Descripción
                             </th>
                             <th className="px-6 py-3 text-right text-xs font-medium tracking-wider text-neutral-500 uppercase">
                                 Acciones
@@ -71,7 +71,7 @@ export default function Index({ categories }: { categories: any }) {
                                     colSpan={3}
                                     className="px-6 py-4 text-center text-sm text-neutral-500"
                                 >
-                                    No categories found.
+                                    No se encontraron categorías.
                                 </td>
                             </tr>
                         )}
@@ -96,7 +96,7 @@ export default function Index({ categories }: { categories: any }) {
 
 Index.layout = {
     breadcrumbs: [
-        { title: 'Dashboard', href: '/dashboard' },
-        { title: 'Categorias', href: '/categories' },
+        { title: 'Panel de Control', href: '/dashboard' },
+        { title: 'Categorías', href: '/categories' },
     ],
 };
