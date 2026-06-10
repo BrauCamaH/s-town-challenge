@@ -104,7 +104,7 @@ export default function Index({ books, users }: { books: any; users: any[] }) {
                                                 href={`/books/${book.id}/edit`}
                                             >
                                                 <Button
-                                                    variant="ghost"
+                                                    variant="outline"
                                                     size="sm"
                                                 >
                                                     Editar
@@ -116,9 +116,8 @@ export default function Index({ books, users }: { books: any; users: any[] }) {
                                                 as="button"
                                             >
                                                 <Button
-                                                    variant="ghost"
+                                                    variant="destructive"
                                                     size="sm"
-                                                    className="text-red-600"
                                                 >
                                                     Eliminar
                                                 </Button>
